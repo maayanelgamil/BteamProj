@@ -10,8 +10,7 @@ namespace bteam.Model
     {
         public double rank(double tags, double distFromLength, double commonTags)
         {
-            double result = (tags + distFromLength + commonTags) / 3;
-            return result;
+
         }
     }
 }

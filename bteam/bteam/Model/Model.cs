@@ -12,12 +12,12 @@ namespace bteam.Model
     public class Model : INotifyPropertyChanged
     {
         // Contains the users and their progress
-        Dictionary<string, double> _users = new Dictionary<string, double>();
+        Dictionary<string, double> _usersRanking = new Dictionary<string, double>();
 
         //Property for the users ranking
-        public Dictionary<string, double> Users
+        public Dictionary<string, double> usersRanking
         {
-            get { return _users; }
+            get { return _usersRanking; }
         }
 
 
@@ -36,7 +36,7 @@ namespace bteam.Model
 
             foreach (string file in files)
             {
-                _users.Add(file, 0);
+                _usersRanking.Add(file, 0);
                 notifyPropertyChanged("Users");//notify that the progress has changed
             }
 
@@ -66,7 +66,7 @@ namespace bteam.Model
 
                     foreach (string file in files)
                     {
-                        _users[file] = calculateProgress(file);
+                        _usersRanking[file] = calculateProgress(file);
                         notifyPropertyChanged("Users");//notify that the progress has changed
 
 
@@ -87,16 +87,25 @@ namespace bteam.Model
         }
 
 
-        public void getFrequent()
+        public void calculateProgress()
         {
             Dictionary<string, Dictionary<string, int>> usersTagsFrequency = new Dictionary<string, Dictionary<string, int>>();
-            foreach (string fileName in _users.Keys)
+            Dictionary<string, string> usersFiles = new Dictionary<string, string>();
+
+            foreach (string fileName in _usersRanking.Keys)
             {
                 Dictionary<string, int> frequent = html.getTagsFromFile(fileName);
+                usersFiles.Add(fileName, fileName);
                 usersTagsFrequency.Add(fileName, frequent);
             }
 
-            Dictionary<string, int> numOfMissingTagPerUser = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
+            Dictionary<string, int> numOfMissingTag = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
+            Dictionary<string, double> usersTagDifference = CalculateTagsDifference.getUserTagsDifference(usersTagsFrequency);
+            Dictionary<string, double> usersWordsDifference = CalculateWordDifference.getUserWordDifference(usersFiles);
+            Ranker ranker = new Ranker();
+
+            foreach (string user in usersFiles.Keys)
+                usersRanking[user] = ranker.rank(usersTagDifference[user], usersWordsDifference[user], numOfMissingTag[user]);
 
         }
     }
