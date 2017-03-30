@@ -17,7 +17,10 @@ namespace bteam.Model
         //Property for the users ranking
         public Dictionary<string, double> Users
         {
-            get { return _users; }
+            get
+            {
+                return _users;
+            }
         }
 
 
@@ -32,7 +35,7 @@ namespace bteam.Model
         /// </summary>
         public Model()
         {
-            string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
+            string[] files = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Users");
 
             foreach (string file in files)
             {
@@ -62,16 +65,16 @@ namespace bteam.Model
             {
                 while (!_stop)
                 {
-                    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Users");
 
-                    foreach (string file in files)
+
+                    foreach (string file in _users.Keys.ToList())
                     {
+
                         _users[file] = calculateProgress(file);
                         notifyPropertyChanged("Users");//notify that the progress has changed
 
-
-
                     }
+                    Thread.Sleep(5000);
                 }
             }).Start();
         }
@@ -83,7 +86,7 @@ namespace bteam.Model
         /// <returns>the prograss</returns>
         private double calculateProgress(string file)
         {
-            throw new NotImplementedException();
+            return _users[file] + 1;
         }
 
 
