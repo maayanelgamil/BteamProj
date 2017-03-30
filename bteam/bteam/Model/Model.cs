@@ -67,7 +67,7 @@ namespace bteam.Model
                     foreach (string file in files)
                     {
                         _users[file] = calculatePrograss(file);
-                        notifyPropertyChanged("Users");//notify that the progress has changed
+                        notifyPropertyChanged("Users");//notify that the progress has changed gg
 
 
 
