@@ -11,8 +11,9 @@ namespace bteam.Model
     {
         public Model()
         {
-
         }
+
+
 
         public int getNumOfWords(string path)
         {
