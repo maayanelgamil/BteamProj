@@ -23,6 +23,7 @@ namespace bteam
         public MainWindow()
         {
             InitializeComponent();
+            //comment
         }
     }
 }
