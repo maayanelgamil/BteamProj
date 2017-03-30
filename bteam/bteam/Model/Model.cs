@@ -17,10 +17,10 @@ namespace bteam.Model
 
             foreach (string file in files)
             {
-                _users.Add(file,0);
+                _users.Add(file, 0);
             }
 
-            
+
         }
 
         public int getNumOfWords(string path)
@@ -35,9 +35,9 @@ namespace bteam.Model
             return result;
         }
 
-        public Dictionary<string,int> userDistanceFromAverage()
+        public Dictionary<string, int> userDistanceFromAverage()
         {
-            
+            return null;
         }
 
 
