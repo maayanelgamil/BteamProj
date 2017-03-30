@@ -1,16 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace bteam.Model
 {
-    class Model
+    public class Model :INotifyPropertyChanged
     {
-
+        // Contains the users and their progress
         Dictionary<string, double> _users = new Dictionary<string, double>();
+
+        // Indicates the model to stop working
+        bool stop = false;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// C'thor
+        /// </summary>
         public Model()
         {
             string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
@@ -22,6 +33,19 @@ namespace bteam.Model
 
 
         }
+
+        public void start()
+        {
+            new Thread(() =>
+            {
+                while (!stop)
+                {
+
+                }
+            });
+        }
+
+
 
         public int getNumOfWords(string path)
         {
