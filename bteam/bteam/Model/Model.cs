@@ -86,36 +86,6 @@ namespace bteam.Model
             throw new NotImplementedException();
         }
 
-        public int getNumOfWords(string path)
-        {
-            int result;
-            string text;
-            using (StreamReader streamReader = new StreamReader(path))
-            {
-                text = streamReader.ReadToEnd();
-            }
-            result = text.Split(' ').Length;
-            return result;
-        }
-
-        public Dictionary<string, int> userDistanceFromAverage()
-        {
-            return null;
-        }
-
-
-        public double calcAvgFileLength(string filePath)
-        {
-            int numOfWords = 0;
-            foreach (string file in _users.Keys)
-            {
-                int num = getNumOfWords(file);
-                numOfWords += num;
-
-            }
-            double avgNumOfWords = numOfWords / _users.Keys.Count;
-            return avgNumOfWords;
-        }
 
         public void getFrequent()
         {
