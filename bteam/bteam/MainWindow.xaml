@@ -33,6 +33,23 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
+            <StackPanel>
+                <ListBox 
+            ItemsSource="{Binding Path=Users}"
+            SelectedValuePath="Value"
+            SelectedValue="{Binding Path=Users}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Black" BorderThickness="2">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Path=Value}" />
+                                    <TextBlock Text="{Binding Path=Key.Name}" />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
 
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1" Background="#FFE2DCDC">

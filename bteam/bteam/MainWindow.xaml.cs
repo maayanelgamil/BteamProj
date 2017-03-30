@@ -27,6 +27,7 @@ namespace bteam
             InitializeComponent();
             m_vm = new ViewModel(new bteam.Model.Model());
             DataContext = m_vm;
+            m_vm.start();
         }
 
         private void login_Click(object sender, RoutedEventArgs e)

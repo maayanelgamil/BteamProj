@@ -22,13 +22,18 @@ namespace bteam
             };
         }
 
+        public Dictionary<string, double> Users
+        {
+            get
+            {
+                return m_model.Users;
+            }
+        }
 
-        //public Dictionary<string, double> Users
-        //{
-        //    get
-        //    {
-        //        return bteam.Model.Model
-        //    }
-        //}
+        public void start()
+        {
+            m_model.start();
+        }
+
     }
 }
