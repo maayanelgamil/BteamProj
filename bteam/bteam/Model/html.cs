@@ -19,7 +19,7 @@ namespace bteam.Model
             {
                 if (res.ContainsKey(node.Name))
                     res[node.Name]++;
-                else
+                else if(!node.Name.Contains('#'))
                     res.Add(node.Name, 1);
             }
             return res;
