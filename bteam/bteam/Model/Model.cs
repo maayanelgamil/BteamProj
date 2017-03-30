@@ -62,7 +62,7 @@ namespace bteam.Model
             {
                 while (!_stop)
                 {
-                    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
+                    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Users");
 
                     foreach (string file in files)
                     {
