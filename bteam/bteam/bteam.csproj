@@ -62,9 +62,6 @@
     <Compile Include="Model\CalculateFrequentTagsMissing.cs" />
     <Compile Include="Model\html.cs" />
     <Compile Include="Model\Ranker.cs" />
-    <Compile Include="teacherWindow.xaml.cs">
-      <DependentUpon>teacherWindow.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,10 +74,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="teacherWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Model.cs" />

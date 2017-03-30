@@ -9,7 +9,7 @@ namespace bteam.Model
 {
     class Model
     {
-        int _numOfWords = 0;
+
         Dictionary<string, double> _users = new Dictionary<string, double>();
         public Model()
         {
@@ -36,33 +36,17 @@ namespace bteam.Model
         }
 
 
-        public Dictionary<string, double> rank(string filePath)
+        public double calcAvgFileLength(string filePath)
         {
-            Dictionary<string, double> result = new Dictionary<string, double>();
-
+            int numOfWords = 0;
             foreach (string file in _users.Keys)
             {
-                int numOfWords = getNumOfWords(file);
-                _numOfWords += numOfWords;
+                int num = getNumOfWords(file);
+                numOfWords += num;
 
             }
-            double avgNumOfWords = _numOfWords / _users.Keys.Count;
-
-
-            return result;
-        }
-
-
-        public Dictionary<string, double> calculate(Dictionary<string, Dictionary<string, double>> userDic)
-        {
-            Dictionary<string, double> result = new Dictionary<string, double>();
-
-            foreach (KeyValuePair<string, Dictionary<string, double>> kp in userDic)
-            {
-
-            }
-
-            return result;
+            double avgNumOfWords = numOfWords / _users.Keys.Count;
+            return avgNumOfWords;
         }
     }
 }
