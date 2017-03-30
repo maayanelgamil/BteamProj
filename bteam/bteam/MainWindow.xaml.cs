@@ -26,5 +26,13 @@ namespace bteam
            // InitializeComponent();
             //comment
         }
+
+        private void login_Click(object sender, RoutedEventArgs e)
+        {
+            Dictionary<string, double> dic = new Dictionary<string, double>();
+            teacherWindow tw = new teacherWindow(dic);
+            tw.Show();
+
+        }
     }
 }
