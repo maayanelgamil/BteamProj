@@ -11,6 +11,7 @@ namespace bteam.Model
     {
         public Model()
         {
+
         }
 
 
@@ -24,6 +25,28 @@ namespace bteam.Model
                 text = streamReader.ReadToEnd();
             }
             result = text.Split(' ').Length;
+            return result;
+        }
+
+        public Dictionary<string, double> rank(string filePath)
+        {
+            Dictionary<string, double> result = new Dictionary<string, double>();
+
+            string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
+
+            return result;
+        }
+
+
+        public Dictionary<string, double> calculate(Dictionary<string, Dictionary<string, double>> userDic)
+        {
+            Dictionary<string, double> result = new Dictionary<string, double>();
+
+            foreach (KeyValuePair<string, Dictionary<string, double>> kp in userDic)
+            {
+
+            }
+
             return result;
         }
     }
