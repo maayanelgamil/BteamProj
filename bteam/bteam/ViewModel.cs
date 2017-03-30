@@ -26,7 +26,7 @@ namespace bteam
         {
             get
             {
-                return m_model.usersRanking;
+                return m_model.Users;
             }
         }
 

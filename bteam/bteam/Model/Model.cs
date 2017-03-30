@@ -12,12 +12,12 @@ namespace bteam.Model
     public class Model : INotifyPropertyChanged
     {
         // Contains the users and their progress
-        Dictionary<string, double> _usersRanking = new Dictionary<string, double>();
+        Dictionary<string, double> _users = new Dictionary<string, double>();
 
         //Property for the users ranking
-        public Dictionary<string, double> usersRanking
+        public Dictionary<string, double> Users
         {
-            get { return _usersRanking; }
+            get { return _users; }
         }
 
 
@@ -36,7 +36,7 @@ namespace bteam.Model
 
             foreach (string file in files)
             {
-                _usersRanking.Add(file, 0);
+                _users.Add(file, 0);
                 notifyPropertyChanged("Users");//notify that the progress has changed
             }
 
@@ -66,7 +66,7 @@ namespace bteam.Model
 
                     foreach (string file in files)
                     {
-                        _usersRanking[file] = calculateProgress(file);
+                        _users[file] = calculateProgress(file);
                         notifyPropertyChanged("Users");//notify that the progress has changed
 
 
@@ -92,7 +92,7 @@ namespace bteam.Model
             Dictionary<string, Dictionary<string, int>> usersTagsFrequency = new Dictionary<string, Dictionary<string, int>>();
             Dictionary<string, string> usersFiles = new Dictionary<string, string>();
 
-            foreach (string fileName in _usersRanking.Keys)
+            foreach (string fileName in _users.Keys)
             {
                 Dictionary<string, int> frequent = html.getTagsFromFile(fileName);
                 usersFiles.Add(fileName, fileName);
@@ -105,7 +105,7 @@ namespace bteam.Model
             Ranker ranker = new Ranker();
 
             foreach (string user in usersFiles.Keys)
-                usersRanking[user] = ranker.rank(usersTagDifference[user], usersWordsDifference[user], numOfMissingTag[user]);
+                Users[user] = ranker.rank(usersTagDifference[user], usersWordsDifference[user], numOfMissingTag[user]);
 
         }
     }
