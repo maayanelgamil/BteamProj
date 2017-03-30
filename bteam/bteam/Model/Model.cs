@@ -14,13 +14,15 @@ namespace bteam.Model
 
         }
 
-        public string getNumOfWords(string path)
+        public int getNumOfWords(string path)
         {
-            string result;
+            int result;
+            string text;
             using (StreamReader streamReader = new StreamReader(path))
             {
-                result = streamReader.ReadToEnd();
+                text = streamReader.ReadToEnd();
             }
+            result = text.Split(' ').Length;
             return result;
         }
     }
