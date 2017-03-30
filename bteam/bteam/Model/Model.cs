@@ -20,6 +20,8 @@ namespace bteam.Model
             get { return _users; }
         }
 
+        // The thread of the model
+        Thread _modelThread;
 
         // Indicates the model to stop working
         bool _stop = false;
@@ -58,22 +60,27 @@ namespace bteam.Model
         /// </summary>
         public void start()
         {
-            new Thread(() =>
-            {
-                while (!_stop)
-                {
-                    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
+            _modelThread = new Thread(() =>
+              {
+                  while (!_stop)
+                  {
+                      string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
 
-                    foreach (string file in files)
-                    {
-                        _users[file] = calculatePrograss(file);
-                        notifyPropertyChanged("Users");//notify that the progress has changed
+                      foreach (string file in files)
+                      {
+                          _users[file] = calculatePrograss(file);
+                          notifyPropertyChanged("Users");//notify that the progress has changed
+                      }
+                      Thread.Sleep(1500);
+                  }
+              });
+            _modelThread.Start();
+        }
 
-
-
-                    }
-                }
-            }).Start();
+        public void stop()
+        {
+            _stop = true;
+            while (_modelThread.IsAlive) ;
         }
 
         /// <summary>
