@@ -6,46 +6,50 @@ using System.Threading.Tasks;
 
 namespace bteam.Model
 {
-    public class CalculateFrequentTagsMissing
+    public static class CalculateFrequentTagsMissing
     {
-        Dictionary<string, Dictionary<string, int>> usersTagsFrequency;
-        Dictionary<string, int> top10PercentageTags;
 
-        public CalculateFrequentTagsMissing(Dictionary<string ,Dictionary<string ,int>> _usersTagsFrequency)
+       public static Dictionary<string, int> getTopPercentageFrequentTags(Dictionary<string, Dictionary<string, int>> usersTagsFrequency,double percentage)
         {
-            usersTagsFrequency = _usersTagsFrequency;
-            top10PercentageTags = new Dictionary<string, int>();
-        }
-       void getTop10PercentageFrequentTags()
-        {
-            foreach(string user_id in usersTagsFrequency.Keys)
+            Dictionary<string, int> topPercentageTags = new Dictionary<string, int>();
+            foreach (string user_id in usersTagsFrequency.Keys)
             {
                 foreach (string tag in usersTagsFrequency[user_id].Keys)
                 {
-                    if (!(top10PercentageTags.ContainsKey(tag)))
-                        top10PercentageTags[tag] = 0;
+                    if (!(topPercentageTags.ContainsKey(tag)))
+                        topPercentageTags[tag] = 0;
 
-                    top10PercentageTags[tag] += usersTagsFrequency[user_id][tag];
+                    topPercentageTags[tag] += usersTagsFrequency[user_id][tag];
                 }
             }
-            int top = top10PercentageTags.Count / 10; //calculate the amount of tags to get
-            List<int> arr = top10PercentageTags.Values.ToList(); //sort the tags
+            double top = (topPercentageTags.Count * (percentage/100)); //calculate the amount of tags to get
+            List<int> arr = topPercentageTags.Values.ToList(); //sort the tags
             arr.Sort();
+            int _top = (int)top;
 
-            int limit = arr[top];
+            int limit = arr[topPercentageTags.Count-1-_top]; //Sets the limit for being frequent tag
             Dictionary<string, int> tmp = new Dictionary<string, int>();
 
-            foreach (string tag in top10PercentageTags.Keys)
+            foreach (string tag in topPercentageTags.Keys)
             {
-                if (top10PercentageTags[tag] > limit)
-                    tmp.Add(tag, top10PercentageTags[tag]);
+                if (topPercentageTags[tag] > limit) //gets only the tags 
+                    tmp.Add(tag, topPercentageTags[tag]);
             }
-            top10PercentageTags = tmp;
+            topPercentageTags = tmp;
+            return topPercentageTags;
         }
 
-        Dictionary<string,int> numOfMissingTags()
+
+
+        public static Dictionary<string,int> numOfMissingTags(Dictionary<string, Dictionary<string, int>> usersTagsFrequency,Dictionary<string,int> topPercentageTag)
         {
-            return null;
+            Dictionary<string, int> tagsPerUser = new Dictionary<string, int>();
+            foreach (string user in usersTagsFrequency.Keys)
+            {
+                if (topPercentageTag.ContainsKey(user))
+                    tagsPerUser[user]++;
+            }
+            return tagsPerUser;
         }
     }
 }
