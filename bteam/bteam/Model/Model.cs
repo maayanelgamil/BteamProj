@@ -48,5 +48,17 @@ namespace bteam.Model
             double avgNumOfWords = numOfWords / _users.Keys.Count;
             return avgNumOfWords;
         }
+
+        public void getFrequent()
+        {
+            Dictionary<string, Dictionary<string, int>> usersTagsFrequency = new Dictionary<string, Dictionary<string, int>>();
+            foreach (string fileName in _users.Keys)
+            {
+                Dictionary<string, int> frequent = html.getTagsFromFile(fileName);
+                usersTagsFrequency.Add(fileName, frequent);
+            }
+
+            Dictionary<string, int> result = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
+        }
     }
 }
