@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\CalculateFrequentTagsMissing.cs" />
     <Compile Include="Model\html.cs" />
     <Compile Include="teacherWindow.xaml.cs">
       <DependentUpon>teacherWindow.xaml</DependentUpon>
