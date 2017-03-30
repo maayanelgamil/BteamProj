@@ -65,6 +65,7 @@
     <Compile Include="Model\html.cs" />
     <Compile Include="Model\Parser.cs" />
     <Compile Include="Model\Ranker.cs" />
+    <Compile Include="ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
