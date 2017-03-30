@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace bteam.Model
 {
-    class Model
+    public class Model
     {
 
         Dictionary<string, double> _users = new Dictionary<string, double>();
@@ -19,8 +19,6 @@ namespace bteam.Model
             {
                 _users.Add(file, 0);
             }
-
-
         }
 
         public int getNumOfWords(string path)

@@ -20,9 +20,13 @@ namespace bteam
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ViewModel m_vm;
+
         public MainWindow()
         {
             InitializeComponent();
+            m_vm = new ViewModel(new bteam.Model.Model());
+            DataContext = m_vm;
         }
 
         private void login_Click(object sender, RoutedEventArgs e)
