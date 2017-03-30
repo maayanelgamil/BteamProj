@@ -9,15 +9,16 @@ using System.Threading.Tasks;
 
 namespace bteam.Model
 {
-    public class Model :INotifyPropertyChanged
+    public class Model : INotifyPropertyChanged
     {
         // Contains the users and their progress
         Dictionary<string, double> _users = new Dictionary<string, double>();
 
         // Indicates the model to stop working
-        bool stop = false;
+        bool _stop = false;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
 
         /// <summary>
         /// C'thor
@@ -34,18 +35,35 @@ namespace bteam.Model
 
         }
 
+        /// <summary>
+        /// Start's the model
+        /// </summary>
         public void start()
         {
             new Thread(() =>
             {
-                while (!stop)
+                while (!_stop)
                 {
+                    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
 
+                    foreach (string file in files)
+                    {
+                        _users[file] = calculatePrograss(file);
+
+                    }
                 }
             });
         }
 
-
+        /// <summary>
+        /// calculate the prograss of the given 
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        private double calculatePrograss(string file)
+        {
+            throw new NotImplementedException();
+        }
 
         public int getNumOfWords(string path)
         {
