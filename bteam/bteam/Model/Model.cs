@@ -62,11 +62,11 @@ namespace bteam.Model
             {
                 while (!_stop)
                 {
-                    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
+                    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Users");
 
                     foreach (string file in files)
                     {
-                        _users[file] = calculatePrograss(file);
+                        _users[file] = calculateProgress(file);
                         notifyPropertyChanged("Users");//notify that the progress has changed
 
 
@@ -81,7 +81,7 @@ namespace bteam.Model
         /// </summary>
         /// <param name="file">the given user file</param>
         /// <returns>the prograss</returns>
-        private double calculatePrograss(string file)
+        private double calculateProgress(string file)
         {
             throw new NotImplementedException();
         }
@@ -96,7 +96,8 @@ namespace bteam.Model
                 usersTagsFrequency.Add(fileName, frequent);
             }
 
-            Dictionary<string, int> result = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
+            Dictionary<string, int> numOfMissingTagPerUser = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
+
         }
     }
 }
