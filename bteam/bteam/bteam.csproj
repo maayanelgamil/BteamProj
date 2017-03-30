@@ -61,6 +61,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\CalculateFrequentTagsMissing.cs" />
     <Compile Include="Model\html.cs" />
+    <Compile Include="Model\Ranker.cs" />
     <Compile Include="teacherWindow.xaml.cs">
       <DependentUpon>teacherWindow.xaml</DependentUpon>
     </Compile>
