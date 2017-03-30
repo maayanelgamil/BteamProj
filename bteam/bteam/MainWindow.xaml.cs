@@ -29,7 +29,6 @@ namespace bteam
         {
             Dictionary<string, double> dic = new Dictionary<string, double>();
 
-
         }
     }
 }

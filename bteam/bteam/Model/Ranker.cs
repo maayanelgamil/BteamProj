@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace bteam.Model
 {
-    public static class Ranker
+    public class Ranker
     {
-        public static double rank(double distFromTagsFreq, double distFromWordsLength, double commonTagsMiss)
+        public  double rank(double tags, double distFromLength, double commonTags)
         {
             double result = (distFromTagsFreq + distFromWordsLength + commonTagsMiss) / 3;
             return result;
