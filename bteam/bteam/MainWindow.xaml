@@ -35,9 +35,9 @@
             </Grid.ColumnDefinitions>
             <StackPanel>
                 <ListBox 
-            ItemsSource="{Binding Path=Users, Mode=OneWay}"
+            ItemsSource="{Binding Path=Users}"
             SelectedValuePath="Value"
-            SelectedValue="{Binding Path=Users, Mode=OneWay}">
+            SelectedValue="{Binding Path=Users}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="Black" BorderThickness="2">
