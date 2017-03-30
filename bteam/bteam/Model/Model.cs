@@ -14,6 +14,15 @@ namespace bteam.Model
         // Contains the users and their progress
         Dictionary<string, double> _users = new Dictionary<string, double>();
 
+        //Property for the users ranking
+        public Dictionary<string, double> Users
+        {
+            get { return _users; }
+        }
+
+        // The thread of the model
+        Thread _modelThread;
+
         // Indicates the model to stop working
         bool _stop = false;
 
@@ -30,9 +39,20 @@ namespace bteam.Model
             foreach (string file in files)
             {
                 _users.Add(file, 0);
+                notifyPropertyChanged("Users");//notify that the progress has changed
             }
 
 
+        }
+
+        /// <summary>
+        /// Wrapper function for property changed
+        /// </summary>
+        /// <param name="propertyName"></param>
+        void notifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>
@@ -40,26 +60,34 @@ namespace bteam.Model
         /// </summary>
         public void start()
         {
-            new Thread(() =>
-            {
-                while (!_stop)
-                {
-                    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
+            _modelThread = new Thread(() =>
+              {
+                  while (!_stop)
+                  {
+                      string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
 
-                    foreach (string file in files)
-                    {
-                        _users[file] = calculatePrograss(file);
+                      foreach (string file in files)
+                      {
+                          _users[file] = calculatePrograss(file);
+                          notifyPropertyChanged("Users");//notify that the progress has changed
+                      }
+                      Thread.Sleep(1500);
+                  }
+              });
+            _modelThread.Start();
+        }
 
-                    }
-                }
-            });
+        public void stop()
+        {
+            _stop = true;
+            while (_modelThread.IsAlive) ;
         }
 
         /// <summary>
-        /// calculate the prograss of the given 
+        /// calculate the prograss of the given user file
         /// </summary>
-        /// <param name="file"></param>
-        /// <returns></returns>
+        /// <param name="file">the given user file</param>
+        /// <returns>the prograss</returns>
         private double calculatePrograss(string file)
         {
             throw new NotImplementedException();
