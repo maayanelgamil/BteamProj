@@ -9,18 +9,18 @@ namespace bteam.Model
     public static class CalculateFrequentTagsMissing
     {
 
-       public static Dictionary<string, int> getTopPercentageFrequentTags(Dictionary<string, Dictionary<string, int>> usersTagsFrequency,double percentage)
+        public static Dictionary<string, int> getTopPercentageFrequentTags(Dictionary<string, Dictionary<string, int>> usersTagsFrequency, double percentage)
         {
             Dictionary<string, int> tagFrequency = new Dictionary<string, int>();
-            tagFrequency=getTotalTagFrequency()
+            tagFrequency = getTotalTagFrequency(usersTagsFrequency);
 
 
-            double top = (tagFrequency.Count * (percentage/100)); //calculate the amount of tags to get
+            double top = (tagFrequency.Count * (percentage / 100)); //calculate the amount of tags to get
             List<int> arr = tagFrequency.Values.ToList(); //sort the tags
             arr.Sort();
             int _top = (int)top;
 
-            int limit = arr[tagFrequency.Count-1-_top]; //Sets the limit for being frequent tag
+            int limit = arr[tagFrequency.Count - 1 - _top]; //Sets the limit for being frequent tag
             Dictionary<string, int> tmp = new Dictionary<string, int>();
 
             foreach (string tag in tagFrequency.Keys)
@@ -32,7 +32,7 @@ namespace bteam.Model
             return tagFrequency;
         }
 
-        public static Dictionary<string,int> getTotalTagFrequency(Dictionary<string, Dictionary<string, int>> usersTagsFrequency)
+        public static Dictionary<string, int> getTotalTagFrequency(Dictionary<string, Dictionary<string, int>> usersTagsFrequency)
         {
             Dictionary<string, int> tagFrequency = new Dictionary<string, int>();
             foreach (string user_id in usersTagsFrequency.Keys)
@@ -48,7 +48,7 @@ namespace bteam.Model
             return tagFrequency;
         }
 
-        public static Dictionary<string,int> numOfMissingTags(Dictionary<string, Dictionary<string, int>> usersTagsFrequency,Dictionary<string,int> topPercentageTag)
+        public static Dictionary<string, int> numOfMissingTags(Dictionary<string, Dictionary<string, int>> usersTagsFrequency, Dictionary<string, int> topPercentageTag)
         {
             Dictionary<string, int> tagsPerUser = new Dictionary<string, int>();
             foreach (string user in usersTagsFrequency.Keys)
