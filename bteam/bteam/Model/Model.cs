@@ -9,15 +9,23 @@ using System.Threading.Tasks;
 
 namespace bteam.Model
 {
-    public class Model :INotifyPropertyChanged
+    public class Model : INotifyPropertyChanged
     {
         // Contains the users and their progress
         Dictionary<string, double> _users = new Dictionary<string, double>();
 
+        //Property for the users ranking
+        public Dictionary<string, double> Users
+        {
+            get { return _users; }
+        }
+
+
         // Indicates the model to stop working
-        bool stop = false;
+        bool _stop = false;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
 
         /// <summary>
         /// C'thor
@@ -29,23 +37,54 @@ namespace bteam.Model
             foreach (string file in files)
             {
                 _users.Add(file, 0);
+                notifyPropertyChanged("Users");//notify that the progress has changed
             }
 
 
         }
 
+        /// <summary>
+        /// Wrapper function for property changed
+        /// </summary>
+        /// <param name="propertyName"></param>
+        void notifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Start's the model
+        /// </summary>
         public void start()
         {
             new Thread(() =>
             {
-                while (!stop)
+                while (!_stop)
                 {
+                    string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
 
+                    foreach (string file in files)
+                    {
+                        _users[file] = calculatePrograss(file);
+                        notifyPropertyChanged("Users");//notify that the progress has changed
+
+
+
+                    }
                 }
-            });
+            }).Start();
         }
 
-
+        /// <summary>
+        /// calculate the prograss of the given user file
+        /// </summary>
+        /// <param name="file">the given user file</param>
+        /// <returns>the prograss</returns>
+        private double calculatePrograss(string file)
+        {
+            throw new NotImplementedException();
+        }
 
         public int getNumOfWords(string path)
         {

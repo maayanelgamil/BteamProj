@@ -60,7 +60,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\CalculateFrequentTagsMissing.cs" />
+    <Compile Include="Model\CalculateTagsDifference.cs" />
+    <Compile Include="Model\CalculateWordDifference.cs" />
     <Compile Include="Model\html.cs" />
+    <Compile Include="Model\Parser.cs" />
     <Compile Include="Model\Ranker.cs" />
     <Compile Include="ViewModel.cs" />
     <Page Include="MainWindow.xaml">
