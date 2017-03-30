@@ -16,10 +16,19 @@ namespace bteam
         {
             m_model = model;
 
-            //model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
-            //{
-            //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(e.PropertyName));
-            //};
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(e.PropertyName));
+            };
         }
+
+
+        //public Dictionary<string, double> Users
+        //{
+        //    get
+        //    {
+        //        return bteam.Model.Model
+        //    }
+        //}
     }
 }
