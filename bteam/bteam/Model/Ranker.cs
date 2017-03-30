@@ -8,9 +8,9 @@ namespace bteam.Model
 {
     public static class Ranker
     {
-        public static double rank(double tags, double distFromLength, double commonTags)
+        public static double rank(double distFromTagsFreq, double distFromWordsLength, double commonTagsMiss)
         {
-            double result = (tags + distFromLength + commonTags) / 3;
+            double result = (distFromTagsFreq + distFromWordsLength + commonTagsMiss) / 3;
             return result;
         }
     }
