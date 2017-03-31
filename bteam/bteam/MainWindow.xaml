@@ -34,97 +34,109 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Border Background="Gainsboro" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18" Margin="10,10,10,10">
-                <Grid Background="Gainsboro" Grid.Column="0" Grid.Row="0"  Margin="10,10,10,10" >
+                <Grid  Grid.Column="0" Grid.Row="0"  Margin="10,10,10,10" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="13*"/>
                         <RowDefinition Height="32*"/>
                     </Grid.RowDefinitions>
 
-                    <local:ProgressCircle Value="{Binding User1}" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                    <local:ProgressCircle Value="{Binding User1}" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828"  Margin="21,0,22,0.4" Grid.Row="1"/>
                     <Label x:Name="compNumber1" Content="Computer 1: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
                     <Label x:Name="precent1" Content="{Binding pr1}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
 
                 </Grid>
             </Border>
-            <Grid Background="Black" Grid.Column="1" Grid.Row="0" Margin="10,10,10,10" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
-                    <RowDefinition Height="32*"/>
-                </Grid.RowDefinitions>
+            <Border Background="Gainsboro" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18" Margin="10,10,10,10" Grid.Column="1" Grid.Row="0">
+                <Grid  Grid.Column="1" Grid.Row="0" Margin="10,10,10,10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="32*"/>
+                    </Grid.RowDefinitions>
 
-                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
-                <Label x:Name="compNumber2" Content="Computer 2: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
-                <Label x:Name="precent2" Content="{Binding pr2}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+                    <local:ProgressCircle Value="{Binding User2}" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                    <Label x:Name="compNumber2" Content="Computer 2: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                    <Label x:Name="precent2" Content="{Binding pr2}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
 
-            </Grid>
-            <Grid Background="Black" Grid.Column="2" Grid.Row="0" Margin="10,10,10,10" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
-                    <RowDefinition Height="32*"/>
-                </Grid.RowDefinitions>
+                </Grid>
+            </Border>
+            <Border Background="Gainsboro" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18" Margin="10,10,10,10" Grid.Column="2" Grid.Row="0">
+                <Grid Grid.Column="2" Grid.Row="0" Margin="10,10,10,10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="32*"/>
+                    </Grid.RowDefinitions>
 
-                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
-                <Label x:Name="compNumber3" Content="Computer 3: " HorizontalAlignment="Left" Height="38" Margin="5,0,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
-                <Label x:Name="precent3" Content="{Binding pr3}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+                    <local:ProgressCircle Value="{Binding User3}" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                    <Label x:Name="compNumber3" Content="Computer 3: " HorizontalAlignment="Left" Height="38" Margin="5,0,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                    <Label x:Name="precent3" Content="{Binding pr3}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
 
-            </Grid>
-            <Grid Background="Black" Grid.Column="3" Grid.Row="0" Margin="10,10,10,10" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
-                    <RowDefinition Height="32*"/>
-                </Grid.RowDefinitions>
+                </Grid>
+            </Border>
+            <Border Background="Gainsboro" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18" Margin="10,10,10,10" Grid.Column="3" Grid.Row="0">
+                <Grid  Grid.Column="3" Grid.Row="0" Margin="10,10,10,10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="32*"/>
+                    </Grid.RowDefinitions>
 
-                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
-                <Label x:Name="compNumber4" Content="Computer 4: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
-                <Label x:Name="precent4" Content="{Binding pr4}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+                    <local:ProgressCircle Value="{Binding User4}" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                    <Label x:Name="compNumber4" Content="Computer 4: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                    <Label x:Name="precent4" Content="{Binding pr4}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
 
-            </Grid>
-            <Grid Background="Black" Grid.Column="0" Grid.Row="1" Margin="10,10,10,10" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
-                    <RowDefinition Height="32*"/>
-                </Grid.RowDefinitions>
+                </Grid>
+            </Border>
+            <Border Background="Gainsboro" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18" Margin="10,10,10,10" Grid.Column="0" Grid.Row="1">
+                <Grid Grid.Column="0" Grid.Row="1" Margin="10,10,10,10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="32*"/>
+                    </Grid.RowDefinitions>
 
-                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
-                <Label x:Name="compNumber5" Content="Computer 5: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
-                <Label x:Name="precent5" Content="{Binding pr5}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+                    <local:ProgressCircle Value="{Binding User5}" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                    <Label x:Name="compNumber5" Content="Computer 5: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                    <Label x:Name="precent5" Content="{Binding pr5}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
 
-            </Grid>
+                </Grid>
+            </Border>
+            <Border Background="Gainsboro" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18" Margin="10,10,10,10" Grid.Column="1" Grid.Row="1">
+                <Grid Grid.Column="1" Grid.Row="1" Margin="10,10,10,10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="32*"/>
+                    </Grid.RowDefinitions>
 
-            <Grid Background="Black" Grid.Column="1" Grid.Row="1" Margin="10,10,10,10" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
-                    <RowDefinition Height="32*"/>
-                </Grid.RowDefinitions>
+                    <local:ProgressCircle Value="{Binding User6}" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                    <Label x:Name="compNumber6" Content="Computer 6: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                    <Label x:Name="precent6" Content="{Binding pr6}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
 
-                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
-                <Label x:Name="compNumber6" Content="Computer 6: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
-                <Label x:Name="precent6" Content="{Binding pr6}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+                </Grid>
+            </Border>
+            <Border Background="Gainsboro" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18" Margin="10,10,10,10" Grid.Column="2" Grid.Row="1">
+                <Grid Grid.Column="2" Grid.Row="1" Margin="10,10,10,10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="32*"/>
+                    </Grid.RowDefinitions>
 
-            </Grid>
-            <Grid Background="Black" Grid.Column="2" Grid.Row="1" Margin="10,10,10,10" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
-                    <RowDefinition Height="32*"/>
-                </Grid.RowDefinitions>
+                    <local:ProgressCircle Value="{Binding User7}" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                    <Label x:Name="compNumber7" Content="Computer 7: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                    <Label x:Name="precent7" Content="{Binding pr7}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
 
-                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
-                <Label x:Name="compNumber7" Content="Computer 7: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
-                <Label x:Name="precent7" Content="{Binding pr7}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+                </Grid>
+            </Border>
+            <Border Background="Gainsboro" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18" Margin="10,10,10,10" Grid.Column="3" Grid.Row="1">
+                <Grid Grid.Column="3" Grid.Row="1" Margin="10,10,10,10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="32*"/>
+                    </Grid.RowDefinitions>
 
-            </Grid>
-            <Grid Background="Black" Grid.Column="3" Grid.Row="1" Margin="10,10,10,10" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
-                    <RowDefinition Height="32*"/>
-                </Grid.RowDefinitions>
+                    <local:ProgressCircle Value="{Binding User8}" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                    <Label x:Name="compNumber8" Content="Computer 8: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                    <Label x:Name="precent8" Content="{Binding pr8}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
 
-                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
-                <Label x:Name="compNumber8" Content="Computer 8: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
-                <Label x:Name="precent8" Content="{Binding pr8}" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
-
-            </Grid>
-
+                </Grid>
+            </Border>
         </Grid>
         <Border Grid.Column="1" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18">
 
