@@ -22,11 +22,7 @@
 					<OL>
 	
 						<LI>Italy
-							<UL>
-								<LI>Milan</LI>
-								<LI>Rome</LI>
-								<LI>Venice</LI>
-							</UL>
+
 						</LI>
 	
 					</OL>

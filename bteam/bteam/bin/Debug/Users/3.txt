@@ -12,15 +12,7 @@
    			use of interactive examples and instruction.">
 	</HEAD>
 	<BODY>
-		<H1>My Wish List</H1>
-		<TABLE border=1 width=100px>
-			<TR>
-				<TD>
-					<U>The List</U>
-				</TD>
-				<TD>
-					<OL>
-						<LI>France</LI>
+		<LI>France</LI>
 						<LI>Italy
 							<UL>
 								<LI>Milan</LI>
@@ -28,12 +20,6 @@
 								<LI>Venice</LI>
 							</UL>
 						</LI>
-						<LI>Germany</LI>
-						<LI>Spain</LI>
-					</OL>
-				</TD>
-			</TR>
-	
-		</TABLE>
+
 	</BODY>
 </HTML>

@@ -17,22 +17,7 @@
 			<TR>
 				<TD>
 					<U>The List</U>
-				</TD>
-				<TD>
-					<OL>
-						<LI>France</LI>
-						<LI>Italy
-	
-						</LI>
-						<LI>Germany</LI>
-						<LI>Spain</LI>
-					</OL>
-				</TD>
-			</TR>
-	
-			<TR>
-				<TD>
-					<I>Chosen City</I>
+				</TD
 				</TD>
 				<TD>
 					<iframe src="http://www.timeout.com/rome/"></iframe>
