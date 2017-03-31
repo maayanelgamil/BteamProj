@@ -42,7 +42,7 @@
 
 
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="1" Background="#FFE2DCDC">
+        <Grid Grid.Column="1" Grid.Row="1" Background="#293541">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
