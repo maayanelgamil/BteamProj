@@ -47,7 +47,8 @@ namespace bteam
         {
             get { return (int)this.GetValue(ValueProperty); }
             set {
-                if(value <= 20)
+                this.SetValue(ValueProperty, value);
+                if (value <= 20)
                 {
                     SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(211, 4, 4, 0));
                     IndicatorBrush = brush;
@@ -72,7 +73,8 @@ namespace bteam
                     SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(64, 255, 12, 0));
                     IndicatorBrush = brush;
                 }
-                this.SetValue(ValueProperty, value); }
+                
+            }
         }
 
         public ProgressCircle()
