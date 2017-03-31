@@ -9,9 +9,10 @@ namespace bteam.Model
     public static class CalculateFrequentTagsMissing
     {
 
-        public static Dictionary<string, int> getTopPercentageFrequentTags(Dictionary<string, Dictionary<string, int>> usersTagsFrequency, double percentage)
+        public static Dictionary<string, double> getTopPercentageFrequentTags(Dictionary<string, Dictionary<string, int>> usersTagsFrequency, double percentage)
         {
             Dictionary<string, int> tagFrequency = new Dictionary<string, int>();
+            Dictionary<string, int> usersFrequentTagsCount = new Dictionary<string, int>();
             tagFrequency = getTotalTagFrequency(usersTagsFrequency);
 
 
@@ -21,25 +22,46 @@ namespace bteam.Model
             int _top = (int)top;
 
             int limit = arr[tagFrequency.Count - 1 - _top]; //Sets the limit for being frequent tag
-            Dictionary<string, int> tmp = new Dictionary<string, int>();
+            Dictionary<string, int> frequentTags = new Dictionary<string, int>();
 
             foreach (string tag in tagFrequency.Keys)
             {
                 if (tagFrequency[tag] > limit) //gets only the tags 
-                    tmp.Add(tag, tagFrequency[tag]);
+                    frequentTags.Add(tag, tagFrequency[tag]);
             }
 
-            tagFrequency = tmp;
-            return tagFrequency;
+            int min = int.MaxValue;
+            int max = 0;
+
+            foreach (string user in usersTagsFrequency.Keys)
+            {
+                foreach (string frequentTag in frequentTags.Keys)
+                {
+                    if (!(usersTagsFrequency[user].ContainsKey(frequentTag)))
+                        usersFrequentTagsCount[user]++;
+                }
+                if (usersFrequentTagsCount[user] > max)
+                    max = usersFrequentTagsCount[user];
+
+                if (usersFrequentTagsCount[user] < min)
+                    min = usersFrequentTagsCount[user];
+            }
+
+            Dictionary<string, double> usersMissingFrequentTagsRank = new Dictionary<string, double>();
+
+            foreach (string user in usersTagsFrequency.Keys)
+            {
+                usersMissingFrequentTagsRank[user] = (max - usersFrequentTagsCount[user]) / max;
+            }
+          
+
+            return usersMissingFrequentTagsRank; //return only top frequency tags
         }
 
         public static Dictionary<string, int> getTotalTagFrequency(Dictionary<string, Dictionary<string, int>> usersTagsFrequency)
         {
             Dictionary<string, int> tagFrequency = new Dictionary<string, int>();
 
-            Dictionary<string, double> frequencyRank = new Dictionary<string, double>();
-            int min = int.MaxValue;
-            int max = 0;
             foreach (string user_id in usersTagsFrequency.Keys)
             {
                 foreach (string tag in usersTagsFrequency[user_id].Keys)
