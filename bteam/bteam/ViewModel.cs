@@ -23,14 +23,6 @@ namespace bteam
             };
         }
 
-        public Dictionary<string, double> Users
-        {
-            get
-            {
-                return m_model.Users;
-            }
-        }
-
         public double User1
         {
             get { return m_model.User1; }
@@ -50,6 +42,27 @@ namespace bteam
         public double User4
         {
             get { return m_model.User4; }
+        }
+
+        public double User5
+        {
+            get { return m_model.User5; }
+
+        }
+
+        public double User6
+        {
+            get { return m_model.User6; }
+        }
+
+        public double User7
+        {
+            get { return m_model.User7; }
+        }
+
+        public double User8
+        {
+            get { return m_model.User8; }
         }
 
         public void start()

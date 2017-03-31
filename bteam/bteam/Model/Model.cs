@@ -59,6 +59,42 @@ namespace bteam.Model
             }
         }
 
+        double _user5 = 0;
+        public double User5
+        {
+            get
+            {
+                return _user5;
+            }
+        }
+
+        double _user6 = 0;
+        public double User6
+        {
+            get
+            {
+                return _user6;
+            }
+        }
+
+        double _user7 = 0;
+        public double User7
+        {
+            get
+            {
+                return _user7;
+            }
+        }
+
+        double _user8 = 0;
+        public double User8
+        {
+            get
+            {
+                return _user8;
+            }
+        }
+
 
 
 
@@ -106,7 +142,7 @@ namespace bteam.Model
                   while (!_stop)
                   {
                       calculateProgress();
-                      Thread.Sleep(5000);
+                      Thread.Sleep(500);
                   }
               });
             model_thread.Start();
@@ -141,7 +177,7 @@ namespace bteam.Model
                 usersTagsFrequency.Add(fileName, frequent);
             }
 
-            Dictionary<string, double> numOfMissingTag = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
+            Dictionary<string, double> numOfMissingTag = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 35);
             Dictionary<string, double> usersTagDifference = CalculateTagsDifference.getUserTagsDifference(usersTagsFrequency);
             Dictionary<string, double> usersWordsDifference = CalculateWordDifference.getUserWordDifference(usersFiles);
             Ranker ranker = new Ranker();
@@ -165,11 +201,32 @@ namespace bteam.Model
                     _user3 = _users[user];
                     notifyPropertyChanged("User3");//notify that the progress has changed
                 }
-                else
+                else if (counter==4)
                 {
                     _user4 = _users[user];
                     notifyPropertyChanged("User4");//notify that the progress has changed
                 }
+                else if (counter == 5)
+                {
+                    _user5 = _users[user];
+                    notifyPropertyChanged("User5");//notify that the progress has changed
+                }
+                else if (counter == 6)
+                {
+                    _user6 = _users[user];
+                    notifyPropertyChanged("User6");//notify that the progress has changed
+                }
+                else if (counter == 7)
+                {
+                    _user7 = _users[user];
+                    notifyPropertyChanged("User7");//notify that the progress has changed
+                }
+                else if (counter == 8)
+                {
+                    _user8 = _users[user];
+                    notifyPropertyChanged("User8");//notify that the progress has changed
+                }
+                counter++;
             }
         }
     }

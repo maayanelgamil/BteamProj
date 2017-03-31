@@ -62,7 +62,7 @@ namespace bteam.Model
                 if (max == 0)
                     usersMissingFrequentTagsRank[user] = 0;
                 else
-                usersMissingFrequentTagsRank[user] = (max - usersFrequentTagsCount[user]) / max;
+                usersMissingFrequentTagsRank[user] = (double)(max - usersFrequentTagsCount[user]) / (double)max;
             }
           
 

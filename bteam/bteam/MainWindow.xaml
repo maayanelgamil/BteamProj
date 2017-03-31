@@ -38,7 +38,7 @@
                 <ColumnDefinition Width="26*"/>
             </Grid.ColumnDefinitions>
 
-            <local:ProgressCircle Grid.Column="1" Value="59" HorizontalAlignment="Center" Height="100" Margin="31.4,22.2,0,0" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
+            <local:ProgressCircle Grid.Column="1" Value="{Binding User1}" HorizontalAlignment="Center" Height="100" Margin="31.4,22.2,0,0" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
 
 
         </Grid>
