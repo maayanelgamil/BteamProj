@@ -23,6 +23,46 @@ namespace bteam.Model
             }
         }
 
+        double _user1 = 0;
+        public double User1
+        {
+            get
+            {
+                return _user1;
+            }
+        }
+
+        double _user2 = 0;
+        public double User2
+        {
+            get
+            {
+                return _user2;
+            }
+        }
+
+        double _user3 = 0;
+        public double User3
+        {
+            get
+            {
+                return _user3;
+            }
+        }
+
+        double _user4 = 0;
+        public double User4
+        {
+            get
+            {
+                return _user4;
+            }
+        }
+
+
+
+
+        Thread model_thread;
 
         // Indicates the model to stop working
         bool _stop = false;
@@ -61,22 +101,50 @@ namespace bteam.Model
         /// </summary>
         public void start()
         {
-            new Thread(() =>
-            {
-                while (!_stop)
-                {
+            model_thread = new Thread(() =>
+              {
+                  while (!_stop)
+                  {
+                      int counter = 1;
 
+                      foreach (string file in _users.Keys.ToList())
+                      {
 
-                    foreach (string file in _users.Keys.ToList())
-                    {
+                          _users[file] = calculateProgress(file);
+                          if (counter == 1)
+                          {
+                              _user1 = _users[file];
+                              notifyPropertyChanged("User1");//notify that the progress has changed
+                          }
+                          else if (counter == 2)
+                          {
+                              _user2 = _users[file];
+                              notifyPropertyChanged("User2");//notify that the progress has changed
+                          }
+                          else if (counter == 3)
+                          {
+                              _user3 = _users[file];
+                              notifyPropertyChanged("User3");//notify that the progress has changed
+                          }
+                          else
+                          {
+                              _user4 = _users[file];
+                              notifyPropertyChanged("User4");//notify that the progress has changed
+                          }
+                          counter++;
+                          if (counter == 5)
+                              counter = 1;
+                      }
+                      Thread.Sleep(5000);
+                  }
+              });
+            model_thread.Start();
+        }
 
-                        _users[file] = calculateProgress(file);
-                        notifyPropertyChanged("Users");//notify that the progress has changed
-
-                    }
-                    Thread.Sleep(5000);
-                }
-            }).Start();
+        public void stop()
+        {
+            _stop = true;
+            while (model_thread.IsAlive) ;
         }
 
         /// <summary>
