@@ -198,41 +198,49 @@ namespace bteam.Model
                 {
                     _user1 = _users[user];
                     notifyPropertyChanged("User1");//notify that the progress has changed
+                    notifyPropertyChanged("pr1");
                 }
                 else if (counter == 2)
                 {
                     _user2 = _users[user];
                     notifyPropertyChanged("User2");//notify that the progress has changed
+                    notifyPropertyChanged("pr2");
                 }
                 else if (counter == 3)
                 {
                     _user3 = _users[user];
                     notifyPropertyChanged("User3");//notify that the progress has changed
+                    notifyPropertyChanged("pr3");
                 }
                 else if (counter==4)
                 {
                     _user4 = _users[user];
                     notifyPropertyChanged("User4");//notify that the progress has changed
+                    notifyPropertyChanged("pr4");
                 }
                 else if (counter == 5)
                 {
                     _user5 = _users[user];
                     notifyPropertyChanged("User5");//notify that the progress has changed
+                    notifyPropertyChanged("pr5");
                 }
                 else if (counter == 6)
                 {
                     _user6 = _users[user];
                     notifyPropertyChanged("User6");//notify that the progress has changed
+                    notifyPropertyChanged("pr6");
                 }
                 else if (counter == 7)
                 {
                     _user7 = _users[user];
                     notifyPropertyChanged("User7");//notify that the progress has changed
+                    notifyPropertyChanged("pr7");
                 }
                 else if (counter == 8)
                 {
                     _user8 = _users[user];
                     notifyPropertyChanged("User8");//notify that the progress has changed
+                    notifyPropertyChanged("pr8");
                 }
                 counter++;
             }
