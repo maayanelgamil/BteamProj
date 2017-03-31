@@ -14,10 +14,10 @@ namespace bteam
     /// </summary>
     public partial class App : Application
     {
-        //protected override void OnStartup(StartupEventArgs e)
-        //{
-        //    MainWindow main = new MainWindow();
-        //    main.Show();
-        //}
+        private void OnStartup(StartupEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+        }
     }
 }
