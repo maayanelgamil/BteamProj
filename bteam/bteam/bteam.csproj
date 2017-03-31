@@ -63,9 +63,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Computer.xaml.cs">
-      <DependentUpon>Computer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\CalculateFrequentTagsMissing.cs" />
     <Compile Include="Model\CalculateTagsDifference.cs" />
     <Compile Include="Model\CalculateWordDifference.cs" />
@@ -76,10 +73,6 @@
       <DependentUpon>ProgressCircle.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel.cs" />
-    <Page Include="Computer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
