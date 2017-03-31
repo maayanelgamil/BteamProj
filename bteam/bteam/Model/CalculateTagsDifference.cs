@@ -40,7 +40,7 @@ namespace bteam.Model
             }
             double average = sum / count;
             foreach (string user in usersNumOfTags.Keys)
-                userNormaledTagDifference.Add(user, (usersNumOfTags[user] - min)/(max-min));
+                userNormaledTagDifference.Add(user, (double)(usersNumOfTags[user] - min)/(double)(max-min));
             return userNormaledTagDifference;
         }
     }

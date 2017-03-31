@@ -59,8 +59,52 @@ namespace bteam.Model
             }
         }
 
+        double _user5 = 0;
+        public double User5
+        {
+            get
+            {
+                return _user5;
+            }
+        }
+
+        double _user6 = 0;
+        public double User6
+        {
+            get
+            {
+                return _user6;
+            }
+        }
+
+        double _user7 = 0;
+        public double User7
+        {
+            get
+            {
+                return _user7;
+            }
+        }
+
+        double _user8 = 0;
+        public double User8
+        {
+            get
+            {
+                return _user8;
+            }
+        }
 
 
+        double avg = 0;
+        public double Avg
+        {
+            get
+            {
+                return avg;
+            }
+            set { avg = value; notifyPropertyChanged("Avg"); }
+        }
 
         Thread model_thread;
 
@@ -105,37 +149,8 @@ namespace bteam.Model
               {
                   while (!_stop)
                   {
-                      int counter = 1;
-
-                      foreach (string file in _users.Keys.ToList())
-                      {
-
-                          _users[file] = calculateProgress(file);
-                          if (counter == 1)
-                          {
-                              _user1 = _users[file];
-                              notifyPropertyChanged("User1");//notify that the progress has changed
-                          }
-                          else if (counter == 2)
-                          {
-                              _user2 = _users[file];
-                              notifyPropertyChanged("User2");//notify that the progress has changed
-                          }
-                          else if (counter == 3)
-                          {
-                              _user3 = _users[file];
-                              notifyPropertyChanged("User3");//notify that the progress has changed
-                          }
-                          else
-                          {
-                              _user4 = _users[file];
-                              notifyPropertyChanged("User4");//notify that the progress has changed
-                          }
-                          counter++;
-                          if (counter == 5)
-                              counter = 1;
-                      }
-                      Thread.Sleep(5000);
+                      calculateProgress();
+                      Thread.Sleep(500);
                   }
               });
             model_thread.Start();
@@ -170,13 +185,63 @@ namespace bteam.Model
                 usersTagsFrequency.Add(fileName, frequent);
             }
 
-            Dictionary<string, double> numOfMissingTag = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
+            Dictionary<string, double> numOfMissingTag = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 35);
             Dictionary<string, double> usersTagDifference = CalculateTagsDifference.getUserTagsDifference(usersTagsFrequency);
             Dictionary<string, double> usersWordsDifference = CalculateWordDifference.getUserWordDifference(usersFiles);
             Ranker ranker = new Ranker();
 
+            int counter = 1;
             foreach (string user in usersFiles.Keys)
-                Users[user] = ranker.rank(usersTagDifference[user], usersWordsDifference[user], numOfMissingTag[user]);
+            {
+                _users[user] = ranker.rank(usersTagDifference[user], usersWordsDifference[user], numOfMissingTag[user]);
+                if (counter == 1)
+                {
+                    _user1 = _users[user];
+                    notifyPropertyChanged("User1");//notify that the progress has changed
+                }
+                else if (counter == 2)
+                {
+                    _user2 = _users[user];
+                    notifyPropertyChanged("User2");//notify that the progress has changed
+                }
+                else if (counter == 3)
+                {
+                    _user3 = _users[user];
+                    notifyPropertyChanged("User3");//notify that the progress has changed
+                }
+                else if (counter==4)
+                {
+                    _user4 = _users[user];
+                    notifyPropertyChanged("User4");//notify that the progress has changed
+                }
+                else if (counter == 5)
+                {
+                    _user5 = _users[user];
+                    notifyPropertyChanged("User5");//notify that the progress has changed
+                }
+                else if (counter == 6)
+                {
+                    _user6 = _users[user];
+                    notifyPropertyChanged("User6");//notify that the progress has changed
+                }
+                else if (counter == 7)
+                {
+                    _user7 = _users[user];
+                    notifyPropertyChanged("User7");//notify that the progress has changed
+                }
+                else if (counter == 8)
+                {
+                    _user8 = _users[user];
+                    notifyPropertyChanged("User8");//notify that the progress has changed
+                }
+                counter++;
+            }
+            double sum = 0;
+            foreach (string user in _users.Keys.ToList())
+            {
+                sum += _users[user];
+            }
+            Avg = (double)(sum / (double)_users.Keys.Count);
         }
     }
 }

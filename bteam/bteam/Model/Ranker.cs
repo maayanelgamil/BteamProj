@@ -10,7 +10,7 @@ namespace bteam.Model
     {
         public double rank(double tagDifference, double usersWords, double missingTag)
         {
-            return 0.33 * tagDifference + 0.34 * usersWords + 0.33 * missingTag;
+            return (0.33 * tagDifference + 0.34 * usersWords + 0.33 * missingTag)*100;
         }
     }
 }

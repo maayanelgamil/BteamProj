@@ -17,13 +17,13 @@ namespace bteam.Model
 
         public string[] split(string toSplit)
         {
-            return toSplit.Split(punctuation.ToArray());
+            return toSplit.Split(punctuation.ToArray(),StringSplitOptions.RemoveEmptyEntries);
         }
 
         private void initPunctuation()
         {
             punctuation = new HashSet<char>();
-            char[] signs = { ',', '.', '&', '^', '?', '!', '@', '#', '/', '*', '_', '+', '=', '\\', '\n', '~', '[', ']', '{', '}', '(', ')', '`', ':', ';', '|', '>', '<', '"', '\'', '-' };
+            char[] signs = {'^', '?', '!', '/', '*', '_', '+', '=', '\\', '\n', '~','`' ,' ','\t'};
             punctuation.UnionWith(signs);
         }
     }
