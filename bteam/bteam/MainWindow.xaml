@@ -7,10 +7,10 @@
         
         mc:Ignorable="d"
         Title="Real Time Progress" Height="450" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Window.Background>
-        <ImageBrush ImageSource="Images/back.jpg" Stretch="UniformToFill"/>
-    </Window.Background>
-    <Grid>
+    <!--<Window.Background>
+        <ImageBrush ImageSource="Images/Blurred-Backgrounds_1.jpg" Stretch="UniformToFill"/>
+    </Window.Background>-->
+    <Grid Background="Gainsboro">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"/>
             <RowDefinition Height="1*"/>
@@ -24,22 +24,104 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" Grid.Row="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="33*"/>
-                <RowDefinition Height="123*"/>
-                <RowDefinition Height="44*"/>
-                <RowDefinition Height="112*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="34*"/>
-                <ColumnDefinition Width="168*"/>
-                <ColumnDefinition Width="43*"/>
-                <ColumnDefinition Width="52*"/>
-                <ColumnDefinition Width="167*"/>
-                <ColumnDefinition Width="26*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
+            <Grid Background="Black" Grid.Column="0" Grid.Row="0" Margin="10,10,10,10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
 
-            <local:ProgressCircle Grid.Column="1" Value="59" HorizontalAlignment="Center" Height="100" Margin="31.4,22.2,0,0" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
+                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                <Label x:Name="compNumber1" Content="Computer 1: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                <Label x:Name="precent1" Content="56%" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
 
+            </Grid>
+            <Grid Background="Black" Grid.Column="1" Grid.Row="0" Margin="10,10,10,10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+
+                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                <Label x:Name="compNumber2" Content="Computer 2: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                <Label x:Name="precent2" Content="56%" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+
+            </Grid>
+            <Grid Background="Black" Grid.Column="2" Grid.Row="0" Margin="10,10,10,10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+
+                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                <Label x:Name="compNumber3" Content="Computer 3: " HorizontalAlignment="Left" Height="38" Margin="5,0,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                <Label x:Name="precent3" Content="56%" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+
+            </Grid>
+            <Grid Background="Black" Grid.Column="3" Grid.Row="0" Margin="10,10,10,10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+
+                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                <Label x:Name="compNumber4" Content="Computer 4: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                <Label x:Name="precent4" Content="56%" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+
+            </Grid>
+            <Grid Background="Black" Grid.Column="0" Grid.Row="1" Margin="10,10,10,10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+
+                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                <Label x:Name="compNumber5" Content="Computer 5: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                <Label x:Name="precent5" Content="56%" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+
+            </Grid>
+            
+            <Grid Background="Black" Grid.Column="1" Grid.Row="1" Margin="10,10,10,10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+
+                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                <Label x:Name="compNumber6" Content="Computer 6: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                <Label x:Name="precent6" Content="56%" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+
+            </Grid>
+            <Grid Background="Black" Grid.Column="2" Grid.Row="1" Margin="10,10,10,10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+
+                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                <Label x:Name="compNumber7" Content="Computer 7: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                <Label x:Name="precent7" Content="56%" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+
+            </Grid>
+            <Grid Background="Black" Grid.Column="3" Grid.Row="1" Margin="10,10,10,10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+
+                <local:ProgressCircle Value="59" HorizontalAlignment="Center" Height="100" VerticalAlignment="Bottom" Width="99" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="#e22828" Margin="21,0,22,0.4" Grid.Row="1"/>
+                <Label x:Name="compNumber8" Content="Computer 8: " HorizontalAlignment="Left" Height="28" Margin="5,10,0,0" VerticalAlignment="Top" Width="95" HorizontalContentAlignment="Left" Foreground="White"/>
+                <Label x:Name="precent8" Content="56%" HorizontalAlignment="Center" Height="28" Margin="37,56,37,44" VerticalAlignment="Center" Width="36" HorizontalContentAlignment="Center" Foreground="White" Grid.Row="1" FontWeight="Bold"/>
+
+            </Grid>
 
         </Grid>
         <Border Grid.Column="1" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18">
@@ -51,17 +133,18 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="61*"/>
-                    <ColumnDefinition Width="31*"/>
-                    <ColumnDefinition Width="92*"/>
-                    <ColumnDefinition Width="61*"/>
+                    <ColumnDefinition Width="122*"/>
+                    <ColumnDefinition Width="62*"/>
+                    <ColumnDefinition Width="183*"/>
+                    <ColumnDefinition Width="57*"/>
+                    <ColumnDefinition Width="65*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label x:Name="studentsNum_lbl" Content="Num of Students :" Grid.Column="0" HorizontalAlignment="Center" Height="26" Grid.Row="1" VerticalAlignment="Center" Width="109" Margin="0,2.8,2.6,0"/>
-                <TextBlock x:Name="studentsNum_txtBox" Grid.Column="1" HorizontalAlignment="Center" Height="26" Margin="10.4,4.4,17.2,20.8" Grid.Row="1" TextWrapping="Wrap" Text="4" VerticalAlignment="Center" Width="34" Background="#FFE2DCDC" Grid.RowSpan="2"/>
+                <Label x:Name="studentsNum_lbl" Content="Num of Students :" Grid.Column="0" HorizontalAlignment="Center" Height="26" Grid.Row="1" VerticalAlignment="Center" Width="109" Margin="5,1.4,7.6,23.8" Grid.RowSpan="2"/>
+                <TextBlock x:Name="studentsNum_txtBox" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" Height="21" Margin="10.4,4.4,26,0.2" Grid.Row="1" TextWrapping="Wrap" Text="4" VerticalAlignment="Center" Width="26" Background="#FFE2DCDC" />
 
-                <Label x:Name="averageProg_lbl" Content="Average Students Progress :" Grid.Column="2" HorizontalAlignment="Center" Height="26" VerticalAlignment="Center" Width="157" Margin="0,3.8,16.4,0" Grid.Row="1"/>
-                <TextBlock x:Name="averageProg_txtBox" Grid.Column="3" HorizontalAlignment="Center" Height="26" Margin="9.6,3.4,78,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="34" Background="#FFE2DCDC" Grid.Row="1" Grid.RowSpan="2"/>
+                <Label x:Name="averageProg_lbl" Content="Average Students Progress :" Grid.Column="2" HorizontalAlignment="Center" Height="26" VerticalAlignment="Center" Width="157" Margin="4.8,1.4,21.4,23.8" Grid.Row="1" Grid.RowSpan="2"/>
+                <TextBlock x:Name="averageProg_txtBox" Grid.Column="3" HorizontalAlignment="Center" Height="21" Margin="9.6,4.4,18,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="29" Background="#FFE2DCDC" Grid.Row="1" TextAlignment="Center"/>
             </Grid>
         </Border>
     </Grid>
