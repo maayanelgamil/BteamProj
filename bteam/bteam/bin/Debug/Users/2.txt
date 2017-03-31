@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<TITLE>Adir Solomon</TITLE>
+
+		<META NAME = "keywords" CONTENT = "Webpage, design, HTML, 
+		   tutorial, personal, help, index, form, contact, feedback,
+   		   list, links, frame, deitel">
+
+		<META NAME = "description" CONTENT = "This Web site will help 
+   			you learn the basics of HTML and Webpage design through the
+   			use of interactive examples and instruction.">
+	</HEAD>
+	<BODY>
+		<H1>My Wish List</H1>
+		<TABLE border=1 width=100px>
+			<TR>
+				<TD>
+					<U>The List</U>
+				</TD>
+				<TD>
+					<OL>
+
+					</OL>
+				</TD>
+
+		</TABLE>
+	</BODY>
+</HTML>

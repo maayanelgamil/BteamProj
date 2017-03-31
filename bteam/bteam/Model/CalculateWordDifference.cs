@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,9 +39,17 @@ namespace bteam.Model
             return differenceFromAverage;
         }
 
-        public static int getNumOfWords(string textFile)
+        public static int getNumOfWords(string file)
         {
+            string textFile;
             Parser parser = new Parser();
+            using (FileStream stream = File.Open(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    textFile = reader.ReadToEnd();
+                }
+            }
             return parser.split(textFile).Count();
         }
     }

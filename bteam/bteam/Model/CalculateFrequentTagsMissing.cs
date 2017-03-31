@@ -21,6 +21,8 @@ namespace bteam.Model
             arr.Sort();
             int _top = (int)top;
 
+
+
             int limit = arr[tagFrequency.Count - 1 - _top]; //Sets the limit for being frequent tag
             Dictionary<string, int> frequentTags = new Dictionary<string, int>();
 
@@ -33,13 +35,19 @@ namespace bteam.Model
             int min = int.MaxValue;
             int max = 0;
 
+            //count missing frequent per user
             foreach (string user in usersTagsFrequency.Keys)
             {
+                if (!usersFrequentTagsCount.ContainsKey(user))
+                {
+                    usersFrequentTagsCount.Add(user, 0);
+                }
                 foreach (string frequentTag in frequentTags.Keys)
                 {
                     if (!(usersTagsFrequency[user].ContainsKey(frequentTag)))
                         usersFrequentTagsCount[user]++;
                 }
+
                 if (usersFrequentTagsCount[user] > max)
                     max = usersFrequentTagsCount[user];
 
@@ -47,10 +55,13 @@ namespace bteam.Model
                     min = usersFrequentTagsCount[user];
             }
 
+            //compute the rank for each user
             Dictionary<string, double> usersMissingFrequentTagsRank = new Dictionary<string, double>();
-
             foreach (string user in usersTagsFrequency.Keys)
             {
+                if (max == 0)
+                    usersMissingFrequentTagsRank[user] = 0;
+                else
                 usersMissingFrequentTagsRank[user] = (max - usersFrequentTagsCount[user]) / max;
             }
           

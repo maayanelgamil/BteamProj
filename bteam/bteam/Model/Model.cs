@@ -105,36 +105,7 @@ namespace bteam.Model
               {
                   while (!_stop)
                   {
-                      int counter = 1;
-
-                      foreach (string file in _users.Keys.ToList())
-                      {
-
-                          _users[file] = calculateProgress(file);
-                          if (counter == 1)
-                          {
-                              _user1 = _users[file];
-                              notifyPropertyChanged("User1");//notify that the progress has changed
-                          }
-                          else if (counter == 2)
-                          {
-                              _user2 = _users[file];
-                              notifyPropertyChanged("User2");//notify that the progress has changed
-                          }
-                          else if (counter == 3)
-                          {
-                              _user3 = _users[file];
-                              notifyPropertyChanged("User3");//notify that the progress has changed
-                          }
-                          else
-                          {
-                              _user4 = _users[file];
-                              notifyPropertyChanged("User4");//notify that the progress has changed
-                          }
-                          counter++;
-                          if (counter == 5)
-                              counter = 1;
-                      }
+                      calculateProgress();
                       Thread.Sleep(5000);
                   }
               });
@@ -175,8 +146,31 @@ namespace bteam.Model
             Dictionary<string, double> usersWordsDifference = CalculateWordDifference.getUserWordDifference(usersFiles);
             Ranker ranker = new Ranker();
 
+            int counter = 1;
             foreach (string user in usersFiles.Keys)
-                Users[user] = ranker.rank(usersTagDifference[user], usersWordsDifference[user], numOfMissingTag[user]);
+            {
+                _users[user] = ranker.rank(usersTagDifference[user], usersWordsDifference[user], numOfMissingTag[user]);
+                if (counter == 1)
+                {
+                    _user1 = _users[user];
+                    notifyPropertyChanged("User1");//notify that the progress has changed
+                }
+                else if (counter == 2)
+                {
+                    _user2 = _users[user];
+                    notifyPropertyChanged("User2");//notify that the progress has changed
+                }
+                else if (counter == 3)
+                {
+                    _user3 = _users[user];
+                    notifyPropertyChanged("User3");//notify that the progress has changed
+                }
+                else
+                {
+                    _user4 = _users[user];
+                    notifyPropertyChanged("User4");//notify that the progress has changed
+                }
+            }
         }
     }
 }
