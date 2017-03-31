@@ -25,7 +25,9 @@ namespace bteam
         public Brush IndicatorBrush
         {
             get { return (Brush)this.GetValue(IndicatorBrushProperty); }
-            set { this.SetValue(IndicatorBrushProperty, value); }
+            set {
+                this.SetValue(IndicatorBrushProperty, value);
+            }
         }
         public static readonly DependencyProperty BackgroundBrushProperty = DependencyProperty.Register("BackgroundBrush", typeof(Brush), typeof(ProgressCircle));
         public Brush BackgroundBrush
