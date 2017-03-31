@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:bteam"
         
         mc:Ignorable="d"
-        Title="Real Time Progress" Height="450" Width="525" WindowStartupLocation="CenterScreen">
-    <!--<Window.Background>
+        Title="Real Time Progress" Height="450" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Background>
         <ImageBrush ImageSource="Images/back.jpg" Stretch="UniformToFill"/>
-    </Window.Background>-->
-    <Grid Background="Gainsboro">
+    </Window.Background>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"/>
             <RowDefinition Height="1*"/>
@@ -37,28 +37,32 @@
                 <ColumnDefinition Width="167*"/>
                 <ColumnDefinition Width="26*"/>
             </Grid.ColumnDefinitions>
-            
-            <local:ProgressCircle Grid.Column="1" Value="{Binding User1}" HorizontalAlignment="Center" Height="100" Margin="31.4,22.2,0,0" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
+
+            <local:ProgressCircle Grid.Column="1" Value="59" HorizontalAlignment="Center" Height="100" Margin="31.4,22.2,0,0" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
 
 
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="1" Background="#293541">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="168*"/>
-                <ColumnDefinition Width="76*"/>
-                <ColumnDefinition Width="122*"/>
-                <ColumnDefinition Width="123*"/>
-            </Grid.ColumnDefinitions>
+        <Border Grid.Column="1" Grid.Row="1" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="18,18,18,18">
 
-            <Label x:Name="studentsNum_lbl" Content="Num of Students :" Grid.Column="0" HorizontalAlignment="Right" Height="26" Grid.Row="0" VerticalAlignment="Top" Width="109"/>
-            <TextBox x:Name="studentsNum_txtBox" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10,4,0,0" Grid.Row="0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="34" Background="#FFE2DCDC"/>
+            <Grid Grid.Column="1" Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="61*"/>
+                    <ColumnDefinition Width="31*"/>
+                    <ColumnDefinition Width="92*"/>
+                    <ColumnDefinition Width="61*"/>
+                </Grid.ColumnDefinitions>
 
-            <Label x:Name="averageProg_lbl" Content="Average Students Progress :" Grid.Column="0" HorizontalAlignment="Right" Height="26" Grid.Row="1" VerticalAlignment="Top" Width="157"/>
-            <TextBox x:Name="averageProg_txtBox" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10,4,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="34" Background="#FFE2DCDC"/>
-        </Grid>
+                <Label x:Name="studentsNum_lbl" Content="Num of Students :" Grid.Column="0" HorizontalAlignment="Center" Height="26" Grid.Row="1" VerticalAlignment="Center" Width="109" Margin="0,2.8,2.6,0"/>
+                <TextBlock x:Name="studentsNum_txtBox" Grid.Column="1" HorizontalAlignment="Center" Height="26" Margin="10.4,4.4,17.2,20.8" Grid.Row="1" TextWrapping="Wrap" Text="4" VerticalAlignment="Center" Width="34" Background="#FFE2DCDC" Grid.RowSpan="2"/>
+
+                <Label x:Name="averageProg_lbl" Content="Average Students Progress :" Grid.Column="2" HorizontalAlignment="Center" Height="26" VerticalAlignment="Center" Width="157" Margin="0,3.8,16.4,0" Grid.Row="1"/>
+                <TextBlock x:Name="averageProg_txtBox" Grid.Column="3" HorizontalAlignment="Center" Height="26" Margin="9.6,3.4,78,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="34" Background="#FFE2DCDC" Grid.Row="1" Grid.RowSpan="2"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
