@@ -170,7 +170,7 @@ namespace bteam.Model
                 usersTagsFrequency.Add(fileName, frequent);
             }
 
-            Dictionary<string, int> numOfMissingTag = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
+            Dictionary<string, double> numOfMissingTag = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
             Dictionary<string, double> usersTagDifference = CalculateTagsDifference.getUserTagsDifference(usersTagsFrequency);
             Dictionary<string, double> usersWordsDifference = CalculateWordDifference.getUserWordDifference(usersFiles);
             Ranker ranker = new Ranker();
