@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bteam"
+        
         mc:Ignorable="d"
-        Title="Event BG" Height="450" Width="525" WindowStartupLocation="CenterScreen">
-    <Window.Background>
+        Title="Real Time Progress" Height="450" Width="525" WindowStartupLocation="CenterScreen">
+    <!--<Window.Background>
         <ImageBrush ImageSource="Images/back.jpg" Stretch="UniformToFill"/>
-    </Window.Background>
-    <Grid>
+    </Window.Background>-->
+    <Grid Background="Gainsboro">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"/>
             <RowDefinition Height="1*"/>
@@ -23,36 +24,25 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" Grid.Row="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="123*"/>
+                <RowDefinition Height="44*"/>
+                <RowDefinition Height="112*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="34*"/>
+                <ColumnDefinition Width="168*"/>
+                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="52*"/>
+                <ColumnDefinition Width="167*"/>
+                <ColumnDefinition Width="26*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel>
-                <ListBox 
-            ItemsSource="{Binding Path=Users}"
-            SelectedValuePath="Value"
-            SelectedValue="{Binding Path=Users}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="Black" BorderThickness="2">
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Path=Value}" />
-                                    <TextBlock Text="{Binding Path=Key.Name}" />
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </StackPanel>
+            
+            <local:ProgressCircle Grid.Column="1" Value="59" HorizontalAlignment="Center" Height="100" Margin="31.4,22.2,0,0" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
+
 
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="1" Background="#FFE2DCDC">
+        <Grid Grid.Column="1" Grid.Row="1" Background="#293541">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
