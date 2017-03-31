@@ -44,7 +44,33 @@ namespace bteam
         public int Value
         {
             get { return (int)this.GetValue(ValueProperty); }
-            set { this.SetValue(ValueProperty, value); }
+            set {
+                if(value <= 20)
+                {
+                    SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(211, 4, 4, 0));
+                    IndicatorBrush = brush;
+                }
+                else if(value <= 40)
+                {
+                    SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(255, 77, 12, 0));
+                    IndicatorBrush = brush;
+                }
+                else if (value <= 60)
+                {
+                    SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(255, 198, 12, 0));
+                    IndicatorBrush = brush;
+                }
+                else if (value <= 80)
+                {
+                    SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(174, 255, 12, 0));
+                    IndicatorBrush = brush;
+                }
+                else 
+                {
+                    SolidColorBrush brush = new SolidColorBrush(Color.FromArgb(64, 255, 12, 0));
+                    IndicatorBrush = brush;
+                }
+                this.SetValue(ValueProperty, value); }
         }
 
         public ProgressCircle()
