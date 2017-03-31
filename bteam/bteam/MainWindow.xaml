@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:bteam"
         
         mc:Ignorable="d"
-        Title="Real Time Progress" Height="450" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="Real Time Progress" Height="450" Width="1000" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Background>
         <ImageBrush ImageSource="Images/back.jpg" Stretch="UniformToFill"/>
     </Window.Background>
@@ -38,7 +38,14 @@
                 <ColumnDefinition Width="26*"/>
             </Grid.ColumnDefinitions>
 
-            <local:ProgressCircle Grid.Column="1" Value="{Binding User1}" HorizontalAlignment="Center" Height="100" Margin="31.4,22.2,0,0" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
+            <local:ProgressCircle Grid.Column="1" Value="{Binding User1}" HorizontalAlignment="Center" Height="100" Margin="10.333,22.333,211.667,0.333" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
+            <local:ProgressCircle Grid.Column="1" Value="{Binding User2}" HorizontalAlignment="Center" Height="100" Margin="168.333,22.333,53.667,0.333" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
+            <local:ProgressCircle Grid.Column="3" Value="{Binding User3}" HorizontalAlignment="Center" Height="100" Margin="99.667,22.333,220.333,0.333" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue" Grid.ColumnSpan="2"/>
+            <local:ProgressCircle Grid.Column="4" Value="{Binding User4}" HorizontalAlignment="Center" Height="100" Margin="158.667,22.333,61.333,0.333" Grid.Row="1" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
+            <local:ProgressCircle Grid.Column="4" Value="{Binding User5}" HorizontalAlignment="Center" Height="100" Margin="158.667,11.667,61.333,0.333" Grid.Row="3" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
+            <local:ProgressCircle Grid.Column="3" Value="{Binding User6}" HorizontalAlignment="Center" Height="100" Margin="99.667,11.667,220.333,0.333" Grid.Row="3" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue" RenderTransformOrigin="6.014,1.977" Grid.ColumnSpan="2"/>
+            <local:ProgressCircle Grid.Column="1" Value="{Binding User7}" HorizontalAlignment="Center" Height="100" Margin="168.333,11.667,53.667,0.333" Grid.Row="3" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue"/>
+            <local:ProgressCircle Grid.Column="1" Value="{Binding User8}" HorizontalAlignment="Center" Height="100" Margin="10.333,11.667,211.667,0.333" Grid.Row="3" VerticalAlignment="Center" Width="100" BackgroundBrush="Black" ProgressBorderBrush="Silver" IndicatorBrush="DodgerBlue" RenderTransformOrigin="0.719,2.078"/>
 
 
         </Grid>

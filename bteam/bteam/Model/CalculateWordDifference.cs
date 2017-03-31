@@ -35,7 +35,14 @@ namespace bteam.Model
             }
             double average = sum / count;
             foreach (string user in userFiles.Keys)
-                differenceFromAverage.Add(user, (double)(usersNumOfWords[user] - min)/(double)(max-min));
+            {
+                double value = (double)(usersNumOfWords[user] - min) / (double)(max - min);
+                if (value == 0)
+                    value = (double)min / max;
+                if (value == 1)
+                    value = (double)(max - min) / max;
+                differenceFromAverage.Add(user, value);
+            }
             return differenceFromAverage;
         }
 

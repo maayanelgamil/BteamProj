@@ -96,7 +96,15 @@ namespace bteam.Model
         }
 
 
-
+        double avg = 0;
+        public double Avg
+        {
+            get
+            {
+                return avg;
+            }
+            set { avg = value; notifyPropertyChanged("Avg"); }
+        }
 
         Thread model_thread;
 
@@ -228,6 +236,12 @@ namespace bteam.Model
                 }
                 counter++;
             }
+            double sum = 0;
+            foreach (string user in _users.Keys.ToList())
+            {
+                sum += _users[user];
+            }
+            Avg = (double)(sum / (double)_users.Keys.Count);
         }
     }
 }

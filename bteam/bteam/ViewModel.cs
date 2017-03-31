@@ -65,6 +65,11 @@ namespace bteam
             get { return m_model.User8; }
         }
 
+        public double Avg
+        {
+            get { return m_model.Avg; }
+        }
+
         public void start()
         {
             m_model.start();
