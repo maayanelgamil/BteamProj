@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace bteam
 {
     public class ViewModel : INotifyPropertyChanged
@@ -30,25 +31,26 @@ namespace bteam
             }
         }
 
-        //public double User1
-        //{
-        //    return m_model.User1;
-        //}
+        public double User1
+        {
+            get { return m_model.User1; }
 
-        //public double User2
-        //{
-        //    return m_model.User2;
-        //}
+        }
 
-        //public double User3
-        //{
-        //    return m_model.User3;
-        //}
+        public double User2
+        {
+            get { return m_model.User2; }
+        }
 
-        //public double User4
-        //{
-        //    return m_model.User4;
-        //}
+        public double User3
+        {
+            get { return m_model.User3; }
+        }
+
+        public double User4
+        {
+            get { return m_model.User4; }
+        }
 
         public void start()
         {
