@@ -15,16 +15,26 @@ namespace bteam.Model
             int sum = 0;
             int tmp = 0;
             int count = 0;
+            int min = int.MaxValue;
+            int max = 0;
+
             foreach (string user in userFiles.Keys)
             {
                 tmp = getNumOfWords(userFiles[user]);
+
+                if (tmp < min)
+                    min = tmp;
+
+                if (tmp > max)
+                    max = tmp;
+
                 usersNumOfWords.Add(user, tmp);
                 sum += tmp;
                 count++;
             }
             double average = sum / count;
             foreach (string user in userFiles.Keys)
-                differenceFromAverage.Add(user, usersNumOfWords[user] - average);
+                differenceFromAverage.Add(user, (usersNumOfWords[user] - min)/(max-min));
             return differenceFromAverage;
         }
 

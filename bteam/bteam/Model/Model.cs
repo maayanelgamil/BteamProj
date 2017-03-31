@@ -109,7 +109,6 @@ namespace bteam.Model
 
             foreach (string user in usersFiles.Keys)
                 Users[user] = ranker.rank(usersTagDifference[user], usersWordsDifference[user], numOfMissingTag[user]);
-
         }
     }
 }

@@ -28,6 +28,7 @@ namespace bteam.Model
                 if (tagFrequency[tag] > limit) //gets only the tags 
                     tmp.Add(tag, tagFrequency[tag]);
             }
+
             tagFrequency = tmp;
             return tagFrequency;
         }
@@ -35,6 +36,10 @@ namespace bteam.Model
         public static Dictionary<string, int> getTotalTagFrequency(Dictionary<string, Dictionary<string, int>> usersTagsFrequency)
         {
             Dictionary<string, int> tagFrequency = new Dictionary<string, int>();
+
+            Dictionary<string, double> frequencyRank = new Dictionary<string, double>();
+            int min = int.MaxValue;
+            int max = 0;
             foreach (string user_id in usersTagsFrequency.Keys)
             {
                 foreach (string tag in usersTagsFrequency[user_id].Keys)
