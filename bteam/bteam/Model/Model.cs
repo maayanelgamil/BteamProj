@@ -90,17 +90,25 @@ namespace bteam.Model
         }
 
 
-        public void getFrequent()
+        public void calculateProgress()
         {
             Dictionary<string, Dictionary<string, int>> usersTagsFrequency = new Dictionary<string, Dictionary<string, int>>();
+            Dictionary<string, string> usersFiles = new Dictionary<string, string>();
+
             foreach (string fileName in _users.Keys)
             {
                 Dictionary<string, int> frequent = html.getTagsFromFile(fileName);
+                usersFiles.Add(fileName, fileName);
                 usersTagsFrequency.Add(fileName, frequent);
             }
 
-            Dictionary<string, int> numOfMissingTagPerUser = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
+            Dictionary<string, int> numOfMissingTag = CalculateFrequentTagsMissing.getTopPercentageFrequentTags(usersTagsFrequency, 10);
+            Dictionary<string, double> usersTagDifference = CalculateTagsDifference.getUserTagsDifference(usersTagsFrequency);
+            Dictionary<string, double> usersWordsDifference = CalculateWordDifference.getUserWordDifference(usersFiles);
+            Ranker ranker = new Ranker();
 
+            foreach (string user in usersFiles.Keys)
+                Users[user] = ranker.rank(usersTagDifference[user], usersWordsDifference[user], numOfMissingTag[user]);
         }
     }
 }

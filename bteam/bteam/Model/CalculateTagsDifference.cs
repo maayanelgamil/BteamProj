@@ -11,16 +11,19 @@ namespace bteam.Model
         public static Dictionary<string,double> getUserTagsDifference(Dictionary<string, Dictionary<string, int>> usersTagsFrequency)
         {
             Dictionary<string, int> usersNumOfTags = new Dictionary<string, int>();
-            Dictionary<string, double> differenceFromAverage = new Dictionary<string, double>();
+            Dictionary<string, double> userNormaledTagDifference = new Dictionary<string, double>();
             int sum = 0;
             int count = 0;
+            int max = 0;
+            int min = int.MaxValue;
             int tmp = 0;
             foreach (string user in usersTagsFrequency.Keys)
             {
                 foreach (string tag in usersTagsFrequency[user].Keys)
                 {
+                    
                     tmp = usersTagsFrequency[user][tag];
-
+                       
                     if (!usersNumOfTags.ContainsKey(user))
                         usersNumOfTags.Add(user, tmp);
                     else
@@ -29,11 +32,16 @@ namespace bteam.Model
                     sum += tmp;
                     count++;
                 }
+                if (usersNumOfTags[user] > max)
+                    max = usersNumOfTags[user];
+
+                if (usersNumOfTags[user] < min)
+                    min = usersNumOfTags[user];
             }
             double average = sum / count;
             foreach (string user in usersNumOfTags.Keys)
-                differenceFromAverage.Add(user, usersNumOfTags[user] - average);
-            return differenceFromAverage;
+                userNormaledTagDifference.Add(user, (usersNumOfTags[user] - min)/(max-min));
+            return userNormaledTagDifference;
         }
     }
 }
